@@ -2,7 +2,6 @@ let socket = io()
 let players
 let player_id
 let growth
-let initializeTime
 
 const DEBUG = false
 const xWorld = 4000
@@ -31,9 +30,6 @@ function setup() {
   socket.on('initialize', function (state) {
     player_id = state.id
     players = state.players
-
-    // Record start time so we can add growth
-    initializeTime = millis()
   })
 
   socket.on('player_added', function(player) {
