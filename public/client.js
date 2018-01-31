@@ -64,7 +64,9 @@ function draw() {
 
   // Draw self
   let me = players[player_id]
-  let mySize = me.visible ? (me.size + (currentTime - me.lastVisibleAt) / 100) : me.size
+  let elapsedTime = currentTime - me.lastVisibleAt;
+  console.log(elapsedTime)
+  let mySize = me.visible ? (me.size + elapsedTime / 100) : me.size
   push()
   ellipseMode(CENTER)
   ellipse(0, 0, mySize, mySize)
