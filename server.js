@@ -50,10 +50,6 @@ io.sockets.on('connection',
 
     // When user becomes visible, record timestamp
     socket.on('visible', function() {
-      if (players === undefined) {
-        return;
-      }
-
       players[socket.id] = Object.assign(players[socket.id], {
         visible: true,
         lastVisibleAt: Date.now()
@@ -63,10 +59,6 @@ io.sockets.on('connection',
 
     // When user becomes invisible, record size
     socket.on('invisible', function() {
-      if (players === undefined) {
-        return;
-      }
-
       let elapsedTime = Date.now() - players[socket.id].lastVisibleAt
       players[socket.id] = Object.assign(players[socket.id], {
         visible: false,
